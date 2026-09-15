@@ -20,10 +20,16 @@
           <textarea id="prompt" name="prompt" rows="6" placeholder="Example: Recreate the uploaded galaxy image in sharp 4K, preserving the composition, with very fine stars and subtle blue-purple nebulas."></textarea>
         </label>
 
-        <label>
-          <span>Source image (optional)</span>
-          <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" />
-        </label>
+        <div class="upload-field">
+          <span class="field-title">Source image (optional)</span>
+          <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Add source image">
+            <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" class="file-input" />
+            <div class="drop-zone-icon">↥</div>
+            <div class="drop-zone-title">Drop an image here</div>
+            <div class="drop-zone-hint">or click to browse · Ctrl+V to paste from clipboard</div>
+            <div id="fileInfo" class="file-info">No image selected</div>
+          </div>
+        </div>
 
         <div class="grid two">
           <label>
@@ -89,6 +95,8 @@
             <input id="compression" name="compression" type="number" min="0" max="100" step="1" value="90" />
           </label>
         </div>
+
+        <div id="costEstimate" class="cost-estimate" aria-live="polite"></div>
 
         <div class="actions">
           <button id="submitBtn" type="submit">Generate</button>
