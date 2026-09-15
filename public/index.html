@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI 4K Image Generator</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1>OpenAI 4K Image Generator</h1>
+      <p class="subtitle">
+        Enter a prompt, optionally attach a source image, and generate a 4K image with the OpenAI Images API.
+      </p>
+
+      <form id="generateForm">
+        <label>
+          <span>Prompt</span>
+          <textarea id="prompt" name="prompt" rows="6" placeholder="Example: Recreate the uploaded galaxy image in sharp 4K, preserving the composition, with very fine stars and subtle blue-purple nebulas."></textarea>
+        </label>
+
+        <label>
+          <span>Source image (optional)</span>
+          <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" />
+        </label>
+
+        <div class="grid two">
+          <label>
+            <span>Preset size</span>
+            <select id="presetSize">
+              <option value="2160x3840" selected>2160x3840 (Portrait 4K)</option>
+              <option value="3840x2160">3840x2160 (Landscape 4K)</option>
+              <option value="2048x2048">2048x2048 (Square)</option>
+              <option value="custom">Custom</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Size (WIDTHxHEIGHT)</span>
+            <input id="size" name="size" type="text" value="2160x3840" placeholder="2160x3840" />
+          </label>
+        </div>
+
+        <div class="grid three">
+          <label>
+            <span>Model</span>
+            <select id="model" name="model">
+              <option value="gpt-image-2.5-sunburst" selected>gpt-image-2.5-sunburst</option>
+              <option value="gpt-image-2.5-flare">gpt-image-2.5-flare</option>
+              <option value="gpt-image-2">gpt-image-2</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Quality</span>
+            <select id="quality" name="quality">
+              <option value="high" selected>high</option>
+              <option value="xhigh">xhigh</option>
+              <option value="max">max</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+              <option value="auto">auto</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Format</span>
+            <select id="outputFormat" name="outputFormat">
+              <option value="png" selected>png</option>
+              <option value="webp">webp</option>
+              <option value="jpeg">jpeg</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>
+            <span>Background</span>
+            <select id="background" name="background">
+              <option value="auto" selected>auto</option>
+              <option value="opaque">opaque</option>
+              <option value="transparent">transparent</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Compression (for webp/jpeg)</span>
+            <input id="compression" name="compression" type="number" min="0" max="100" step="1" value="90" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit">Generate</button>
+        </div>
+      </form>
+
+      <div id="status" class="status"></div>
+
+      <div id="previewBlock" class="preview hidden">
+        <h2>Result</h2>
+        <img id="resultImage" alt="Generated result" />
+        <div class="preview-actions">
+          <a id="downloadLink" href="#" download>Download image</a>
+        </div>
+        <pre id="responseInfo"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
