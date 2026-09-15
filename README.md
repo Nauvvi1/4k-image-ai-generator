@@ -1,6 +1,6 @@
-# OpenAI 4K Image Generator (Node.js)
+# OpenAI 4K Image Generator on Node.js
 
-A simple Node.js + Express app for generating or recreating 4K images with the OpenAI Images API.
+Express app for generating or recreating 4K images with the OpenAI Images API.
 
 ## What it does
 
@@ -11,16 +11,8 @@ A simple Node.js + Express app for generating or recreating 4K images with the O
 - saves the generated result locally and shows it in the browser
 - supports 4K-sized requests such as `3840x2160` or `2160x3840`
 
-## Requirements
-
-- Node.js 18.18+ (Node 20+ recommended)
-- an OpenAI API key
-
 ## Setup
-
-1. Unzip the project.
-2. Open a terminal in the project folder.
-3. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
@@ -78,20 +70,4 @@ Create a dark deep-space background in portrait 4K with very small stars, subtle
 
 ```text
 Recreate the uploaded image in sharp portrait 4K. Keep the same composition, mood, and colors. Make the stars very fine and the nebula details clean and crisp.
-```
-
-## Project structure
-
-```text
-openai-4k-image-generator/
-  public/
-    index.html
-    styles.css
-    app.js
-  generated/
-  uploads/
-  server.js
-  package.json
-  .env.example
-  README.md
 ```
